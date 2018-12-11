@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: client-service-test
+spec:
+  type: NodePort
+  selector:
+    component: server
+  ports:
+  - port: 3050
+    targetPort: 5000
+    nodePort: 31516
