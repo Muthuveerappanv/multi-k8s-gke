@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: muthuveerappan-tls
+spec:
+  secretName: muthuveerappan-tk
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: muthuveerappan.tk
+  dnsNames:
+    - muthuveerappan.tk
+    - www.muthuveerappan.tk
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - muthuveerappan.tk
+          - www.muthuveerappan.tk
